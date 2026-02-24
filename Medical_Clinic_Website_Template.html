@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunrise Medical Clinic | Your Neighborhood Health Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint: #0D9488;
+  --mint-light: #CCFBF1;
+  --mint-dark: #065F5B;
+  --navy: #0F172A;
+  --slate: #475569;
+  --warm: #FFF7ED;
+  --peach: #FDBA74;
+  --white: #FFFFFF;
+  --ghost: #F8FAFC;
+  --border: #E2E8F0;
+  --radius: 16px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); background: var(--white); overflow-x: hidden; }
+h1, h2, h3 { font-family: 'DM Serif Display', serif; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: all 0.3s; }
+nav .nav-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--mint), var(--mint-dark)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 700; }
+.logo-text { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--navy); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--slate); font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--mint); }
+.nav-cta { background: var(--mint); color: white !important; padding: 10px 24px; border-radius: 50px; font-weight: 600 !important; transition: all 0.3s !important; }
+.nav-cta:hover { background: var(--mint-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,148,136,0.3); }
+.mobile-menu { display: none; background: none; border: none; font-size: 24px; cursor: pointer; }
+
+/* HERO */
+.hero { padding: 140px 24px 80px; background: linear-gradient(170deg, var(--white) 0%, var(--mint-light) 50%, var(--warm) 100%); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -100px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 70%); border-radius: 50%; }
+.hero::after { content: ''; position: absolute; bottom: -50px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(253,186,116,0.12) 0%, transparent 70%); border-radius: 50%; }
+.hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: white; padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; color: var(--mint); margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.hero-badge .dot { width: 8px; height: 8px; background: #22C55E; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 { font-size: 52px; line-height: 1.1; color: var(--navy); margin-bottom: 20px; }
+.hero h1 span { color: var(--mint); }
+.hero p { font-size: 18px; line-height: 1.7; color: var(--slate); margin-bottom: 32px; max-width: 520px; }
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary { background: var(--mint); color: white; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--mint-dark); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(13,148,136,0.3); }
+.btn-secondary { background: white; color: var(--navy); padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 15px; border: 2px solid var(--border); transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+.btn-secondary:hover { border-color: var(--mint); color: var(--mint); }
+.hero-image { position: relative; }
+.hero-card { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); position: relative; }
+.hero-card-img { width: 100%; height: 280px; background: linear-gradient(135deg, var(--mint-light), #A7F3D0); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 80px; margin-bottom: 24px; }
+.hero-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.hero-stat { text-align: center; padding: 16px 8px; background: var(--ghost); border-radius: 12px; }
+.hero-stat strong { display: block; font-size: 24px; color: var(--mint); font-family: 'DM Serif Display', serif; }
+.hero-stat span { font-size: 12px; color: var(--slate); font-weight: 500; }
+.floating-badge { position: absolute; background: white; padding: 12px 18px; border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px; animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+.floating-badge.top-right { top: -20px; right: -20px; color: var(--mint); }
+.floating-badge.bottom-left { bottom: 40px; left: -30px; color: #E11D48; animation-delay: 1.5s; }
+
+/* SERVICES */
+.services { padding: 100px 24px; background: var(--white); }
+.services-inner { max-width: 1200px; margin: 0 auto; }
+.section-label { display: inline-block; background: var(--mint-light); color: var(--mint-dark); padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.section-title { font-size: 42px; color: var(--navy); margin-bottom: 16px; }
+.section-sub { font-size: 17px; color: var(--slate); max-width: 560px; margin-bottom: 60px; line-height: 1.7; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.service-card { background: var(--ghost); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; transition: all 0.4s; cursor: pointer; position: relative; overflow: hidden; }
+.service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--mint); transform: scaleX(0); transition: transform 0.4s; }
+.service-card:hover { background: white; box-shadow: 0 16px 48px rgba(0,0,0,0.08); transform: translateY(-4px); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon { width: 56px; height: 56px; background: var(--mint-light); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 20px; }
+.service-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--navy); }
+.service-card p { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+/* ABOUT / PROVIDERS */
+.about { padding: 100px 24px; background: var(--ghost); }
+.about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-image { background: linear-gradient(135deg, var(--mint), var(--mint-dark)); border-radius: 24px; height: 500px; display: flex; align-items: center; justify-content: center; font-size: 120px; position: relative; }
+.about-image::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 200px; height: 200px; border: 3px solid var(--mint-light); border-radius: 24px; z-index: -1; }
+.about h2 { font-size: 38px; margin-bottom: 20px; }
+.about p { font-size: 16px; color: var(--slate); line-height: 1.8; margin-bottom: 16px; }
+.credentials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.credential { background: white; border: 1px solid var(--border); padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; color: var(--slate); }
+
+/* TESTIMONIALS */
+.testimonials { padding: 100px 24px; background: var(--navy); color: white; }
+.testimonials .section-label { background: rgba(255,255,255,0.1); color: var(--peach); }
+.testimonials .section-title { color: white; }
+.testimonials .section-sub { color: rgba(255,255,255,0.6); }
+.testimonials-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 32px; transition: all 0.3s; }
+.testimonial-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+.testimonial-stars { color: var(--peach); font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+.testimonial-card p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 20px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--mint), var(--peach)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+.testimonial-name { font-weight: 600; font-size: 14px; }
+.testimonial-role { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+/* BOOKING CTA */
+.booking { padding: 100px 24px; background: linear-gradient(135deg, var(--mint-light) 0%, var(--warm) 100%); text-align: center; }
+.booking-inner { max-width: 700px; margin: 0 auto; }
+.booking h2 { font-size: 42px; margin-bottom: 16px; }
+.booking p { font-size: 17px; color: var(--slate); margin-bottom: 40px; line-height: 1.7; }
+.booking-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; }
+.booking-form input { flex: 1; padding: 16px 24px; border: 2px solid var(--border); border-radius: 50px; font-size: 15px; font-family: inherit; outline: none; transition: border 0.3s; }
+.booking-form input:focus { border-color: var(--mint); }
+.booking-phone { display: flex; align-items: center; gap: 8px; margin-top: 20px; justify-content: center; font-size: 15px; color: var(--slate); }
+.booking-phone a { color: var(--mint); font-weight: 700; text-decoration: none; font-size: 20px; }
+
+/* CONTACT / FOOTER */
+.contact { padding: 80px 24px; background: var(--ghost); }
+.contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.contact-card { background: white; border-radius: var(--radius); padding: 32px; text-align: center; border: 1px solid var(--border); transition: all 0.3s; }
+.contact-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.contact-card .icon { font-size: 36px; margin-bottom: 16px; }
+.contact-card h3 { font-size: 18px; margin-bottom: 8px; }
+.contact-card p { font-size: 14px; color: var(--slate); line-height: 1.6; }
+
+footer { background: var(--navy); color: white; padding: 48px 24px; text-align: center; }
+footer p { font-size: 13px; opacity: 0.5; }
+footer .footer-links { margin-bottom: 16px; }
+footer .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 16px; font-size: 14px; }
+
+/* AI CHAT WIDGET */
+.chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 999; }
+.chat-bubble { width: 64px; height: 64px; background: linear-gradient(135deg, var(--mint), var(--mint-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 32px rgba(13,148,136,0.4); transition: all 0.3s; font-size: 28px; color: white; }
+.chat-bubble:hover { transform: scale(1.1); }
+.chat-popup { position: absolute; bottom: 80px; right: 0; width: 360px; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); overflow: hidden; display: none; animation: slideUp 0.3s; }
+.chat-popup.active { display: block; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.chat-header { background: linear-gradient(135deg, var(--mint), var(--mint-dark)); padding: 20px; color: white; }
+.chat-header h4 { font-family: 'DM Serif Display', serif; font-size: 18px; }
+.chat-header p { font-size: 12px; opacity: 0.8; }
+.chat-messages { padding: 20px; height: 280px; overflow-y: auto; }
+.chat-msg { margin-bottom: 16px; }
+.chat-msg.bot { display: flex; gap: 8px; }
+.chat-msg.bot .avatar { width: 32px; height: 32px; background: var(--mint-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.chat-msg .bubble { background: var(--ghost); padding: 12px 16px; border-radius: 14px; font-size: 14px; line-height: 1.5; color: var(--navy); max-width: 260px; }
+.chat-input { display: flex; padding: 12px 16px; border-top: 1px solid var(--border); gap: 8px; }
+.chat-input input { flex: 1; border: 1px solid var(--border); border-radius: 50px; padding: 10px 16px; font-size: 14px; outline: none; font-family: inherit; }
+.chat-input button { background: var(--mint); color: white; border: none; border-radius: 50px; padding: 10px 16px; cursor: pointer; font-weight: 600; font-size: 13px; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu { display: block; }
+  .hero-inner, .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero h1 { font-size: 36px; }
+  .services-grid, .testimonials-grid, .contact-inner { grid-template-columns: 1fr; }
+  .booking-form { flex-direction: column; }
+  .hero-image { order: -1; }
+  .section-title { font-size: 32px; }
+}
+
+/* ANIMATIONS */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">S</div>
+      <span class="logo-text">Sunrise Medical</span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">Our Team</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#booking" class="nav-cta">Book Appointment</a>
+    </div>
+    <button class="mobile-menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="dot"></span> Accepting New Patients</div>
+      <h1>Your Health, <br><span>Our Priority</span></h1>
+      <p>Compassionate, comprehensive healthcare for the whole family. Walk-ins welcome, same-day appointments available, and now offering 24/7 AI-powered scheduling.</p>
+      <div class="hero-buttons">
+        <a href="#booking" class="btn-primary">&#128197; Book Appointment</a>
+        <a href="tel:+14155551234" class="btn-secondary">&#128222; (415) 555-1234</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-card">
+        <div class="hero-card-img">&#x1F3E5;</div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>15+</strong><span>Years Serving</span></div>
+          <div class="hero-stat"><strong>10K+</strong><span>Patients Treated</span></div>
+          <div class="hero-stat"><strong>4.8&#9733;</strong><span>Google Rating</span></div>
+        </div>
+        <div class="floating-badge top-right">&#x2713; Same-Day Visits</div>
+        <div class="floating-badge bottom-left">&#10084;&#65039; Walk-Ins Welcome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <span class="section-label">Our Services</span>
+    <h2 class="section-title">Comprehensive Care<br>Under One Roof</h2>
+    <p class="section-sub">From routine check-ups to specialized treatment, we provide the full spectrum of medical services your family needs.</p>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">&#129657;</div>
+        <h3>Primary Care</h3>
+        <p>Annual physicals, chronic disease management, preventive screenings, and health assessments for all ages.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128118;</div>
+        <h3>Pediatrics</h3>
+        <p>Well-child visits, vaccinations, developmental screenings, and compassionate care for your little ones.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#129658;</div>
+        <h3>Urgent Care</h3>
+        <p>Same-day appointments for sudden illness, minor injuries, infections, and conditions that need quick attention.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128154;</div>
+        <h3>Women's Health</h3>
+        <p>Annual exams, prenatal care, family planning, menopause management, and reproductive health services.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#129504;</div>
+        <h3>Mental Health</h3>
+        <p>Depression & anxiety screening, therapy referrals, medication management, and stress counseling support.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128137;</div>
+        <h3>Lab & Diagnostics</h3>
+        <p>On-site blood work, urinalysis, rapid testing, EKGs, and comprehensive diagnostic services.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-image">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+    <div>
+      <span class="section-label">Meet Your Doctor</span>
+      <h2>Dr. Sarah Mitchell, MD</h2>
+      <p>With over 15 years of experience in family medicine, Dr. Mitchell is dedicated to providing personalized, evidence-based care to every patient who walks through our doors.</p>
+      <p>She believes in building long-term relationships with her patients and taking the time to truly listen to their concerns. Her approach combines modern medicine with genuine compassion.</p>
+      <div class="credentials">
+        <span class="credential">&#127891; Harvard Medical School</span>
+        <span class="credential">&#128203; Board Certified Family Medicine</span>
+        <span class="credential">&#127942; Top Doctor 2024</span>
+        <span class="credential">&#127760; Bilingual (EN/ES)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="section-label">Patient Reviews</span>
+    <h2 class="section-title">What Our Patients Say</h2>
+    <p class="section-sub">Real stories from real patients who trust us with their health.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Dr. Mitchell and her team are amazing! They actually listen and take time to explain everything. I've never felt so cared for at a doctor's office."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">M</div>
+        <div><div class="testimonial-name">Maria R.</div><div class="testimonial-role">Patient since 2019</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Got a same-day appointment when my son had a fever. The staff was calm, professional, and incredibly kind. This clinic is a gem."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">J</div>
+        <div><div class="testimonial-name">James T.</div><div class="testimonial-role">Patient since 2021</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"The online booking is so convenient! I scheduled my annual physical at 11pm and got a confirmation instantly. Love this clinic."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">L</div>
+        <div><div class="testimonial-name">Linda K.</div><div class="testimonial-role">Patient since 2022</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <span class="section-label">Get Started</span>
+    <h2>Book Your Visit Today</h2>
+    <p>New patients welcome! Schedule your appointment online in seconds, or call us directly. We accept most major insurance plans.</p>
+    <div class="booking-form">
+      <input type="text" placeholder="Enter your name or phone number">
+      <button class="btn-primary">Book Now &#8594;</button>
+    </div>
+    <div class="booking-phone">Or call us: <a href="tel:+14155551234">(415) 555-1234</a></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-card">
+      <div class="icon">&#128205;</div>
+      <h3>Visit Us</h3>
+      <p>1501 Quintara Street<br>San Francisco, CA 94116</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">&#128337;</div>
+      <h3>Office Hours</h3>
+      <p>Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM<br>Sun: Closed</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">&#128222;</div>
+      <h3>Contact</h3>
+      <p>Phone: (415) 555-1234<br>Fax: (415) 555-1235<br>info@sunrisemedical.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Insurance</a>
+    <a href="#">Patient Portal</a>
+  </div>
+  <p>&copy; 2026 Sunrise Medical Clinic. All rights reserved. | Powered by Scientia Thrive</p>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<div class="chat-widget">
+  <div class="chat-popup" id="chatPopup">
+    <div class="chat-header">
+      <h4>&#x1F916; Sunrise AI Assistant</h4>
+      <p>Online now &#x2022; Typically replies instantly</p>
+    </div>
+    <div class="chat-messages">
+      <div class="chat-msg bot">
+        <div class="avatar">&#x1F916;</div>
+        <div class="bubble">Hi! &#x1F44B; I'm Sunrise's AI assistant. I can help you book appointments, check our hours, or answer questions about our services. How can I help you today?</div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Type your message...">
+      <button>Send</button>
+    </div>
+  </div>
+  <div class="chat-bubble" onclick="document.getElementById('chatPopup').classList.toggle('active')">&#x1F4AC;</div>
+</div>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
