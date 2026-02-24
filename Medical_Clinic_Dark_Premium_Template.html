@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everwell Health | Modern Primary Care</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sage: #4ADE80;
+  --sage-dark: #16A34A;
+  --sage-muted: #BBF7D0;
+  --ink: #09090B;
+  --char: #18181B;
+  --zinc: #27272A;
+  --steel: #71717A;
+  --silver: #A1A1AA;
+  --snow: #FAFAFA;
+  --white: #FFFFFF;
+  --glass: rgba(255,255,255,0.04);
+  --glass2: rgba(255,255,255,0.08);
+  --glow: rgba(74,222,128,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--silver);background:var(--ink);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Fraunces',serif;color:var(--white)}
+::selection{background:var(--sage);color:var(--ink)}
+
+/* GRAIN */
+.grain{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0.025;pointer-events:none;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:9999}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,0.85);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:var(--sage);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ink);font-size:16px}
+.logo-name{font-family:'Fraunces',serif;font-size:20px;color:var(--white);font-weight:700}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--steel);font-size:13px;font-weight:500;letter-spacing:0.3px;transition:color 0.3s}
+.nav-links a:hover{color:var(--sage)}
+.nav-btn{background:var(--sage)!important;color:var(--ink)!important;padding:10px 24px;border-radius:50px;font-weight:600!important;transition:all 0.3s!important}
+.nav-btn:hover{background:var(--sage-dark)!important;transform:translateY(-2px);box-shadow:0 8px 24px var(--glow)}
+.mob-menu{display:none;background:none;border:none;color:var(--white);font-size:24px;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 32px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,var(--glow) 0%,transparent 70%);border-radius:50%;filter:blur(80px)}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(74,222,128,0.06) 0%,transparent 70%);border-radius:50%;filter:blur(60px)}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center;position:relative;z-index:1;width:100%}
+.hero-label{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.06);padding:8px 18px;border-radius:50px;font-size:12px;font-weight:600;color:var(--sage);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:28px}
+.hero-label .pulse{width:8px;height:8px;background:var(--sage);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-size:58px;line-height:1.08;margin-bottom:24px;font-weight:800;letter-spacing:-1px}
+.hero h1 em{font-style:italic;color:var(--sage);font-weight:600}
+.hero-desc{font-size:17px;line-height:1.8;color:var(--steel);margin-bottom:36px;max-width:520px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.btn-g{background:var(--sage);color:var(--ink);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:inherit;letter-spacing:0.3px}
+.btn-g:hover{background:var(--sage-dark);transform:translateY(-3px);box-shadow:0 16px 40px var(--glow)}
+.btn-o{background:transparent;color:var(--white);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,0.15);transition:all 0.3s;display:inline-flex;align-items:center;gap:8px}
+.btn-o:hover{border-color:var(--sage);color:var(--sage)}
+.trust-row{display:flex;gap:32px;align-items:center}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--steel)}
+.trust-item .ico{font-size:18px}
+
+/* HERO RIGHT */
+.hero-right{position:relative}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{background:var(--glass2);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:32px;transition:all 0.4s;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--sage),transparent);opacity:0;transition:opacity 0.4s}
+.stat-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-4px);border-color:rgba(74,222,128,0.15)}
+.stat-card:hover::before{opacity:1}
+.stat-num{font-family:'Fraunces',serif;font-size:40px;color:var(--sage);font-weight:800;display:block;margin-bottom:4px}
+.stat-label{font-size:13px;color:var(--steel);font-weight:500}
+.stat-card.featured{grid-column:span 2;background:linear-gradient(135deg,rgba(74,222,128,0.08),rgba(74,222,128,0.02));border-color:rgba(74,222,128,0.12)}
+.stat-card.featured .stat-num{font-size:48px}
+
+/* SERVICES */
+.services{padding:120px 32px;position:relative}
+.services::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
+.services-inner{max-width:1280px;margin:0 auto}
+.tag{display:inline-block;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.06);padding:6px 16px;border-radius:50px;font-size:11px;font-weight:700;color:var(--sage);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
+.stitle{font-size:44px;margin-bottom:16px;font-weight:700;letter-spacing:-0.5px}
+.sdesc{font-size:16px;color:var(--steel);max-width:520px;margin-bottom:64px;line-height:1.8}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.srv-card{background:var(--glass);border:1px solid rgba(255,255,255,0.05);border-radius:20px;padding:36px;transition:all 0.4s;cursor:pointer;position:relative;overflow:hidden}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--sage);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.srv-card:hover{background:var(--glass2);border-color:rgba(74,222,128,0.1);transform:translateY(-4px)}
+.srv-card:hover::after{transform:scaleX(1)}
+.srv-ico{width:52px;height:52px;background:rgba(74,222,128,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
+.srv-card h3{font-size:19px;margin-bottom:10px;font-weight:600}
+.srv-card p{font-size:14px;line-height:1.7;color:var(--steel)}
+
+/* PROVIDERS */
+.providers{padding:120px 32px;background:var(--char);position:relative}
+.providers::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
+.prov-inner{max-width:1280px;margin:0 auto}
+.prov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prov-card{background:var(--glass);border:1px solid rgba(255,255,255,0.05);border-radius:24px;overflow:hidden;transition:all 0.4s}
+.prov-card:hover{border-color:rgba(74,222,128,0.12);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.prov-img{height:240px;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,rgba(74,222,128,0.08),rgba(74,222,128,0.02))}
+.prov-info{padding:28px}
+.prov-info h3{font-size:20px;margin-bottom:4px}
+.prov-role{color:var(--sage);font-size:13px;font-weight:600;margin-bottom:12px;display:block}
+.prov-info p{font-size:13px;color:var(--steel);line-height:1.7}
+.prov-badges{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.prov-badge{background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.12);padding:4px 12px;border-radius:50px;font-size:11px;color:var(--sage);font-weight:600}
+
+/* TESTIMONIALS */
+.testi{padding:120px 32px;position:relative}
+.testi::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
+.testi-inner{max-width:1280px;margin:0 auto}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:var(--glass);border:1px solid rgba(255,255,255,0.05);border-radius:20px;padding:32px;transition:all 0.3s}
+.testi-card:hover{background:var(--glass2);border-color:rgba(255,255,255,0.08)}
+.testi-stars{color:var(--sage);font-size:14px;margin-bottom:16px;letter-spacing:3px}
+.testi-card blockquote{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.7);margin-bottom:24px;font-style:italic}
+.testi-who{display:flex;align-items:center;gap:12px}
+.testi-avi{width:40px;height:40px;background:linear-gradient(135deg,var(--sage),var(--sage-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:var(--ink)}
+.testi-name{font-weight:600;font-size:14px;color:var(--white)}
+.testi-since{font-size:11px;color:var(--steel)}
+
+/* INSURANCE */
+.insurance{padding:80px 32px;background:var(--char)}
+.ins-inner{max-width:1280px;margin:0 auto;text-align:center}
+.ins-inner h2{font-size:28px;margin-bottom:12px}
+.ins-inner p{color:var(--steel);margin-bottom:40px;font-size:15px}
+.ins-logos{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.ins-logo{background:var(--glass2);border:1px solid rgba(255,255,255,0.06);padding:16px 32px;border-radius:12px;font-weight:700;font-size:14px;color:var(--silver);letter-spacing:0.5px}
+
+/* CTA */
+.cta{padding:120px 32px;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,var(--glow) 0%,transparent 60%);border-radius:50%;filter:blur(100px)}
+.cta-inner{max-width:620px;margin:0 auto;position:relative;z-index:1}
+.cta h2{font-size:48px;margin-bottom:16px;letter-spacing:-0.5px}
+.cta p{font-size:17px;color:var(--steel);margin-bottom:40px;line-height:1.8}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-phone{margin-top:24px;font-size:15px;color:var(--steel)}
+.cta-phone a{color:var(--sage);text-decoration:none;font-weight:700;font-size:22px}
+
+/* CONTACT */
+.contact{padding:80px 32px;background:var(--char)}
+.con-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.con-card{background:var(--glass);border:1px solid rgba(255,255,255,0.05);border-radius:20px;padding:32px;text-align:center;transition:all 0.3s}
+.con-card:hover{border-color:rgba(74,222,128,0.1)}
+.con-card .ci{font-size:36px;margin-bottom:14px}
+.con-card h3{font-size:18px;margin-bottom:8px;color:var(--white)}
+.con-card p{font-size:14px;color:var(--steel);line-height:1.7}
+
+footer{padding:40px 32px;text-align:center;border-top:1px solid rgba(255,255,255,0.04)}
+footer p{font-size:12px;color:var(--zinc)}
+footer a{color:var(--steel);text-decoration:none;margin:0 16px;font-size:13px}
+
+/* CHAT */
+.chat-w{position:fixed;bottom:24px;right:24px;z-index:999}
+.chat-toggle{width:60px;height:60px;background:var(--sage);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 32px var(--glow);transition:all 0.3s;font-size:26px;color:var(--ink);border:none;font-weight:700}
+.chat-toggle:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(74,222,128,0.35)}
+.chat-box{position:absolute;bottom:76px;right:0;width:370px;background:var(--char);border:1px solid rgba(255,255,255,0.08);border-radius:24px;box-shadow:0 24px 80px rgba(0,0,0,0.5);overflow:hidden;display:none;animation:rise 0.3s}
+.chat-box.show{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.chat-hd{background:linear-gradient(135deg,var(--sage-dark),var(--sage));padding:20px;color:var(--ink)}
+.chat-hd h4{font-family:'Fraunces',serif;font-size:17px;font-weight:700}
+.chat-hd p{font-size:12px;opacity:0.7}
+.chat-msgs{padding:20px;height:260px;overflow-y:auto}
+.cb{display:flex;gap:8px;margin-bottom:14px}
+.cb .av{width:30px;height:30px;background:var(--sage);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink);font-weight:700;flex-shrink:0}
+.cb .tx{background:var(--glass2);border:1px solid rgba(255,255,255,0.06);padding:12px 16px;border-radius:16px;font-size:13px;line-height:1.6;color:var(--silver);max-width:260px}
+.chat-ft{display:flex;padding:12px;border-top:1px solid rgba(255,255,255,0.06);gap:8px}
+.chat-ft input{flex:1;background:var(--glass2);border:1px solid rgba(255,255,255,0.08);border-radius:50px;padding:10px 16px;font-size:13px;color:var(--white);outline:none;font-family:inherit}
+.chat-ft input::placeholder{color:var(--steel)}
+.chat-ft button{background:var(--sage);color:var(--ink);border:none;border-radius:50px;padding:10px 18px;cursor:pointer;font-weight:700;font-size:12px}
+
+@media(max-width:768px){
+  .nav-links{display:none}.mob-menu{display:block}
+  .hero-inner,.prov-grid,.testi-grid,.con-inner{grid-template-columns:1fr}
+  .srv-grid{grid-template-columns:1fr}
+  .hero h1{font-size:38px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stitle{font-size:32px}
+  .cta h2{font-size:34px}
+  .ins-logos{gap:12px}
+}
+
+.fi{opacity:0;transform:translateY(24px);transition:all 0.6s ease}.fi.v{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo"><div class="logo-mark">E</div><span class="logo-name">Everwell Health</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#providers">Providers</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#book" class="nav-btn">Book Visit</a>
+    </div>
+    <button class="mob-menu">&#9776;</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label"><span class="pulse"></span> Now Accepting New Patients</div>
+      <h1>Healthcare that <em>actually</em> listens</h1>
+      <p class="hero-desc">Modern primary care designed around you. Same-day appointments, 24/7 AI scheduling, and providers who take the time to understand your health story.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn-g">Book Appointment &rarr;</a>
+        <a href="tel:+14155559876" class="btn-o">&#9742; (415) 555-9876</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><span class="ico">&#9989;</span> Same-Day Visits</div>
+        <div class="trust-item"><span class="ico">&#128737;</span> Most Insurance Accepted</div>
+        <div class="trust-item"><span class="ico">&#127760;</span> Bilingual Staff</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-num">20+</span><span class="stat-label">Years of Experience</span></div>
+        <div class="stat-card"><span class="stat-num">12K</span><span class="stat-label">Patients Served</span></div>
+        <div class="stat-card"><span class="stat-num">4.9</span><span class="stat-label">Google Rating &#9733;</span></div>
+        <div class="stat-card"><span class="stat-num">24/7</span><span class="stat-label">AI Scheduling</span></div>
+        <div class="stat-card featured"><span class="stat-num">98%</span><span class="stat-label">Patient Satisfaction Rate</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-inner">
+    <span class="tag">Services</span>
+    <h2 class="stitle">Complete care for<br>every stage of life</h2>
+    <p class="sdesc">From preventive wellness to chronic disease management, our team provides comprehensive healthcare tailored to your needs.</p>
+    <div class="srv-grid">
+      <div class="srv-card fi"><div class="srv-ico">&#129657;</div><h3>Annual Physicals</h3><p>Comprehensive health assessments, screenings, and personalized wellness plans for adults and seniors.</p></div>
+      <div class="srv-card fi"><div class="srv-ico">&#128118;</div><h3>Pediatric Care</h3><p>Well-child visits, immunizations, growth monitoring, and sick visits for infants through adolescents.</p></div>
+      <div class="srv-card fi"><div class="srv-ico">&#129658;</div><h3>Same-Day Urgent</h3><p>Walk-in availability for flu, infections, minor injuries, allergies, and conditions needing prompt attention.</p></div>
+      <div class="srv-card fi"><div class="srv-ico">&#128154;</div><h3>Chronic Care</h3><p>Ongoing management of diabetes, hypertension, asthma, thyroid disorders, and autoimmune conditions.</p></div>
+      <div class="srv-card fi"><div class="srv-ico">&#129504;</div><h3>Behavioral Health</h3><p>Depression & anxiety screening, counseling referrals, medication management, and wellness support.</p></div>
+      <div class="srv-card fi"><div class="srv-ico">&#128300;</div><h3>Lab & Imaging</h3><p>On-site bloodwork, rapid testing, EKG, X-ray referrals, and comprehensive diagnostics.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="providers" id="providers">
+  <div class="prov-inner">
+    <span class="tag">Our Team</span>
+    <h2 class="stitle" style="margin-bottom:64px">Meet your providers</h2>
+    <div class="prov-grid">
+      <div class="prov-card fi">
+        <div class="prov-img">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="prov-info">
+          <h3>Dr. Elena Reyes, MD</h3>
+          <span class="prov-role">Family Medicine &bull; Lead Physician</span>
+          <p>18 years of experience in family and preventive medicine. Passionate about patient education and holistic wellness.</p>
+          <div class="prov-badges"><span class="prov-badge">Stanford Med</span><span class="prov-badge">Board Certified</span><span class="prov-badge">Bilingual EN/ES</span></div>
+        </div>
+      </div>
+      <div class="prov-card fi">
+        <div class="prov-img">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="prov-info">
+          <h3>Dr. Michael Tran, DO</h3>
+          <span class="prov-role">Internal Medicine</span>
+          <p>Specializes in chronic disease management and geriatric care. Known for his thorough, patient-first approach.</p>
+          <div class="prov-badges"><span class="prov-badge">UCSF</span><span class="prov-badge">Board Certified</span><span class="prov-badge">15+ Years</span></div>
+        </div>
+      </div>
+      <div class="prov-card fi">
+        <div class="prov-img">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="prov-info">
+          <h3>Sarah Kim, NP</h3>
+          <span class="prov-role">Nurse Practitioner &bull; Pediatrics</span>
+          <p>Dedicated to children's health with expertise in developmental milestones, vaccines, and adolescent wellness.</p>
+          <div class="prov-badges"><span class="prov-badge">Johns Hopkins</span><span class="prov-badge">AANP Certified</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi" id="reviews">
+  <div class="testi-inner">
+    <span class="tag">Patient Stories</span>
+    <h2 class="stitle" style="margin-bottom:64px">Why patients choose us</h2>
+    <div class="testi-grid">
+      <div class="testi-card fi">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"For the first time, I feel like my doctor actually understands me. Dr. Reyes takes her time and never rushes. This is what healthcare should be."</blockquote>
+        <div class="testi-who"><div class="testi-avi">R</div><div><div class="testi-name">Rosa M.</div><div class="testi-since">Patient since 2020</div></div></div>
+      </div>
+      <div class="testi-card fi">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"The online booking was so easy! I scheduled at midnight and got an appointment the next morning. The AI assistant even reminded me to fast for bloodwork."</blockquote>
+        <div class="testi-who"><div class="testi-avi">J</div><div><div class="testi-name">James L.</div><div class="testi-since">Patient since 2023</div></div></div>
+      </div>
+      <div class="testi-card fi">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"My whole family comes here &mdash; from my toddler to my 80-year-old mother. Sarah is incredible with the kids and Dr. Tran manages my mom's diabetes perfectly."</blockquote>
+        <div class="testi-who"><div class="testi-avi">A</div><div><div class="testi-name">Angela S.</div><div class="testi-since">Patient since 2019</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="insurance">
+  <div class="ins-inner">
+    <h2>Insurance We Accept</h2>
+    <p>We work with most major insurance providers. Don't see yours? Call us &mdash; we'll verify your coverage for free.</p>
+    <div class="ins-logos">
+      <div class="ins-logo">Blue Cross</div>
+      <div class="ins-logo">Aetna</div>
+      <div class="ins-logo">UnitedHealth</div>
+      <div class="ins-logo">Cigna</div>
+      <div class="ins-logo">Medicare</div>
+      <div class="ins-logo">Medi-Cal</div>
+      <div class="ins-logo">Kaiser</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="book">
+  <div class="cta-inner">
+    <span class="tag">Get Started</span>
+    <h2>Your health journey starts here</h2>
+    <p>New patients welcome. Book online in seconds or call us directly. Same-day and next-day appointments often available.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn-g">&#128197; Schedule Online</a>
+      <a href="#" class="btn-o">&#128172; Chat with AI Assistant</a>
+    </div>
+    <div class="cta-phone">Or call: <a href="tel:+14155559876">(415) 555-9876</a></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="con-inner">
+    <div class="con-card"><div class="ci">&#128205;</div><h3>Location</h3><p>833 Kearny Street, Suite 300<br>San Francisco, CA 94108</p></div>
+    <div class="con-card"><div class="ci">&#128337;</div><h3>Hours</h3><p>Mon-Fri: 7:30 AM - 7:00 PM<br>Saturday: 8:00 AM - 2:00 PM<br>Sunday: Closed</p></div>
+    <div class="con-card"><div class="ci">&#128222;</div><h3>Contact</h3><p>Phone: (415) 555-9876<br>Fax: (415) 555-9877<br>info@everwellhealth.com</p></div>
+  </div>
+</section>
+
+<footer>
+  <div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Insurance</a><a href="#">Patient Portal</a></div>
+  <p style="margin-top:16px">&copy; 2026 Everwell Health. All rights reserved. | Powered by Scientia Thrive</p>
+</footer>
+
+<div class="chat-w">
+  <div class="chat-box" id="cbox">
+    <div class="chat-hd"><h4>&#x1F916; Everwell AI Assistant</h4><p>Online &bull; Book appointments instantly</p></div>
+    <div class="chat-msgs"><div class="cb"><div class="av">E</div><div class="tx">Welcome to Everwell Health! &#x1F44B; I can help you schedule an appointment, check insurance coverage, find our hours, or answer questions about our services. How can I help?</div></div></div>
+    <div class="chat-ft"><input placeholder="Type your message..."><button>Send</button></div>
+  </div>
+  <button class="chat-toggle" onclick="document.getElementById('cbox').classList.toggle('show')">&#x1F4AC;</button>
+</div>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:0.1});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
