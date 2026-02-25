@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarePoint Medical | Family Health & Wellness</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2563EB;--blue-light:#DBEAFE;--blue-dark:#1D4ED8;
+  --coral:#F43F5E;--coral-light:#FFE4E6;
+  --navy:#0F172A;--slate:#475569;--gray:#94A3B8;
+  --sky:#F0F9FF;--white:#FFFFFF;--ghost:#F8FAFC;
+  --border:#E2E8F0;--r:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Bricolage Grotesque',sans-serif;color:var(--navy);background:var(--white);overflow-x:hidden}
+h1,h2,h3{font-family:'Lora',serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.ni{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-dot{width:38px;height:38px;background:linear-gradient(135deg,var(--blue),var(--coral));border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:15px}
+.logo span{font-family:'Lora',serif;font-size:22px;color:var(--navy);font-weight:700}
+.nl{display:flex;gap:28px;align-items:center}
+.nl a{text-decoration:none;color:var(--slate);font-size:14px;font-weight:500;transition:color 0.3s}
+.nl a:hover{color:var(--blue)}
+.nl .cb{background:var(--blue);color:white!important;padding:10px 24px;border-radius:50px;font-weight:600!important;transition:all 0.3s!important}
+.nl .cb:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,0.3)}
+.mm{display:none;background:none;border:none;font-size:24px;cursor:pointer}
+
+/* HERO */
+.hero{padding:130px 28px 80px;background:linear-gradient(175deg,var(--white) 0%,var(--sky) 40%,var(--blue-light) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:60px;right:-80px;width:500px;height:500px;border-radius:50%;border:60px solid rgba(37,99,235,0.04)}
+.hero::after{content:'';position:absolute;bottom:-40px;left:-60px;width:300px;height:300px;border-radius:50%;background:rgba(244,63,94,0.04)}
+.hi{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;position:relative;z-index:1}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--blue-light);padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;color:var(--blue);margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.hero-chip .dot{width:8px;height:8px;background:#22C55E;border-radius:50%;animation:pls 2s infinite}
+@keyframes pls{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-size:54px;line-height:1.1;margin-bottom:20px;color:var(--navy)}
+.hero h1 .hl{background:linear-gradient(135deg,var(--blue),var(--coral));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-p{font-size:18px;line-height:1.7;color:var(--slate);margin-bottom:32px;max-width:500px}
+.hb{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn{padding:15px 32px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:inherit}
+.btn-b{background:var(--blue);color:white}.btn-b:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,0.25)}
+.btn-w{background:white;color:var(--navy);border:2px solid var(--border)}.btn-w:hover{border-color:var(--blue);color:var(--blue)}
+.trust{display:flex;gap:24px;flex-wrap:wrap}
+.trust-i{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--slate);font-weight:500}
+.trust-i .ic{font-size:16px}
+
+/* HERO RIGHT - FEATURE CARDS */
+.hr{position:relative}
+.feat-stack{display:flex;flex-direction:column;gap:14px}
+.feat{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;display:flex;align-items:center;gap:20px;transition:all 0.4s;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.03)}
+.feat:hover{transform:translateX(8px);box-shadow:0 8px 32px rgba(0,0,0,0.06);border-color:var(--blue-light)}
+.feat-ic{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+.feat-ic.fc1{background:var(--blue-light)}
+.feat-ic.fc2{background:var(--coral-light)}
+.feat-ic.fc3{background:#DCFCE7}
+.feat-ic.fc4{background:#FEF3C7}
+.feat-ic.fc5{background:#F3E8FF}
+.feat h4{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;margin-bottom:3px}
+.feat p{font-size:13px;color:var(--slate);line-height:1.5}
+
+/* SERVICES */
+.services{padding:100px 28px;background:var(--ghost)}
+.si{max-width:1240px;margin:0 auto}
+.tag{display:inline-block;background:var(--blue-light);color:var(--blue-dark);padding:6px 16px;border-radius:50px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.stit{font-size:44px;color:var(--navy);margin-bottom:16px}
+.ssub{font-size:16px;color:var(--slate);max-width:520px;margin-bottom:60px;line-height:1.8}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sc{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all 0.4s;cursor:pointer;position:relative;overflow:hidden}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--coral));transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.sc:hover{box-shadow:0 16px 48px rgba(0,0,0,0.06);transform:translateY(-4px)}
+.sc:hover::before{transform:scaleX(1)}
+.sc-ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
+.sc-ic.s1{background:var(--blue-light)}.sc-ic.s2{background:var(--coral-light)}.sc-ic.s3{background:#DCFCE7}
+.sc-ic.s4{background:#FEF3C7}.sc-ic.s5{background:#F3E8FF}.sc-ic.s6{background:#E0F2FE}
+.sc h3{font-size:19px;margin-bottom:8px}
+.sc p{font-size:14px;color:var(--slate);line-height:1.7}
+
+/* WHY US */
+.why{padding:100px 28px;background:var(--navy);color:white;position:relative;overflow:hidden}
+.why::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,0.15),transparent 70%);border-radius:50%}
+.wi{max-width:1240px;margin:0 auto;position:relative;z-index:1}
+.why .tag{background:rgba(37,99,235,0.2);color:#93C5FD}
+.why .stit{color:white}
+.why .ssub{color:rgba(255,255,255,0.6)}
+.wg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.wc{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:var(--r);padding:32px;text-align:center;transition:all 0.3s}
+.wc:hover{background:rgba(255,255,255,0.08);transform:translateY(-4px)}
+.wc-num{font-family:'Lora',serif;font-size:44px;font-weight:700;background:linear-gradient(135deg,#93C5FD,var(--coral));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.wc h4{font-size:15px;color:white;margin-bottom:6px;font-family:'Bricolage Grotesque',sans-serif}
+.wc p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6}
+
+/* TEAM */
+.team{padding:100px 28px;background:var(--white)}
+.ti{max-width:1240px;margin:0 auto}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tc{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);transition:all 0.4s;cursor:pointer}
+.tc:hover{box-shadow:0 16px 48px rgba(0,0,0,0.08);transform:translateY(-6px)}
+.tc-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:64px}
+.tc-img.t1{background:linear-gradient(135deg,var(--blue-light),#BFDBFE)}
+.tc-img.t2{background:linear-gradient(135deg,var(--coral-light),#FECDD3)}
+.tc-img.t3{background:linear-gradient(135deg,#DCFCE7,#BBF7D0)}
+.tc-img.t4{background:linear-gradient(135deg,#F3E8FF,#E9D5FF)}
+.tc-info{padding:20px}
+.tc-info h3{font-size:17px;margin-bottom:2px}
+.tc-role{font-size:12px;color:var(--blue);font-weight:700;display:block;margin-bottom:8px}
+.tc-info p{font-size:12px;color:var(--slate);line-height:1.6}
+
+/* TESTIMONIALS */
+.testi{padding:100px 28px;background:var(--sky)}
+.tei{max-width:1240px;margin:0 auto}
+.teg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tec{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:all 0.3s}
+.tec:hover{box-shadow:0 12px 36px rgba(0,0,0,0.05);transform:translateY(-3px)}
+.te-stars{font-size:14px;margin-bottom:14px;letter-spacing:2px}
+.te-stars .on{color:var(--coral)}
+.tec blockquote{font-size:15px;line-height:1.7;color:var(--slate);margin-bottom:20px;font-style:italic;font-family:'Lora',serif}
+.te-who{display:flex;align-items:center;gap:12px}
+.te-avi{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:white}
+.te-avi.a1{background:var(--blue)}.te-avi.a2{background:var(--coral)}.te-avi.a3{background:#16A34A}
+.te-name{font-weight:700;font-size:14px}.te-since{font-size:11px;color:var(--gray)}
+
+/* CTA */
+.cta{padding:100px 28px;background:linear-gradient(135deg,var(--blue-light),var(--coral-light));text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;border:80px solid rgba(37,99,235,0.04)}
+.cta-in{max-width:620px;margin:0 auto;position:relative;z-index:1}
+.cta h2{font-size:46px;margin-bottom:16px;color:var(--navy)}
+.cta p{font-size:17px;color:var(--slate);margin-bottom:36px;line-height:1.7}
+.cta-form{display:flex;gap:10px;max-width:480px;margin:0 auto}
+.cta-form input{flex:1;padding:16px 24px;border:2px solid var(--border);border-radius:50px;font-size:15px;font-family:inherit;outline:none;background:white;transition:border 0.3s}
+.cta-form input:focus{border-color:var(--blue)}
+.cta-ph{margin-top:20px;font-size:15px;color:var(--slate)}
+.cta-ph a{color:var(--blue);font-weight:700;text-decoration:none;font-size:20px}
+
+/* CONTACT */
+.contact{padding:80px 28px;background:var(--white)}
+.ci{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cc{background:var(--ghost);border:1px solid var(--border);border-radius:var(--r);padding:28px;text-align:center;transition:all 0.3s}
+.cc:hover{box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+.cc .ico{font-size:36px;margin-bottom:12px}
+.cc h3{font-size:18px;margin-bottom:8px}
+.cc p{font-size:14px;color:var(--slate);line-height:1.7}
+
+footer{background:var(--navy);padding:40px 28px;text-align:center}
+footer a{color:var(--gray);text-decoration:none;margin:0 16px;font-size:13px}
+footer p{color:rgba(255,255,255,0.2);font-size:12px;margin-top:16px}
+
+/* CHAT */
+.chatw{position:fixed;bottom:24px;right:24px;z-index:999}
+.chtgl{width:62px;height:62px;background:linear-gradient(135deg,var(--blue),var(--coral));border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 32px rgba(37,99,235,0.3);transition:all 0.3s;font-size:26px;color:white;border:none}
+.chtgl:hover{transform:scale(1.1)}
+.chbox{position:absolute;bottom:78px;right:0;width:370px;background:white;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,0.15);overflow:hidden;display:none;animation:up 0.3s}
+.chbox.on{display:block}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.chh{background:linear-gradient(135deg,var(--blue),var(--blue-dark));padding:20px;color:white}
+.chh h4{font-family:'Lora',serif;font-size:17px}
+.chh p{font-size:12px;opacity:0.8}
+.chm{padding:20px;height:260px;overflow-y:auto}
+.chbot{display:flex;gap:8px;margin-bottom:14px}
+.chbot .av{width:30px;height:30px;background:var(--blue-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.chbot .bbl{background:var(--ghost);padding:12px 16px;border-radius:16px;font-size:13px;line-height:1.6;max-width:260px}
+.chf{display:flex;padding:12px;border-top:1px solid var(--border);gap:8px}
+.chf input{flex:1;border:1px solid var(--border);border-radius:50px;padding:10px 16px;font-size:13px;outline:none;font-family:inherit}
+.chf button{background:var(--blue);color:white;border:none;border-radius:50px;padding:10px 18px;cursor:pointer;font-weight:700;font-size:12px}
+
+@media(max-width:768px){
+  .nl{display:none}.mm{display:block}
+  .hi{grid-template-columns:1fr}
+  .hero h1{font-size:38px}
+  .sg,.teg,.ci{grid-template-columns:1fr}
+  .wg,.tg{grid-template-columns:1fr 1fr}
+  .stit{font-size:32px}
+  .cta-form{flex-direction:column}
+  .feat-stack{order:-1}
+}
+.fi{opacity:0;transform:translateY(24px);transition:all 0.6s}.fi.v{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav><div class="ni">
+  <a href="#" class="logo"><div class="logo-dot">C</div><span>CarePoint</span></a>
+  <div class="nl"><a href="#services">Services</a><a href="#team">Providers</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="#book" class="cb">Book Visit</a></div>
+  <button class="mm">&#9776;</button>
+</div></nav>
+
+<section class="hero"><div class="hi">
+  <div>
+    <div class="hero-chip"><span class="dot"></span> Open Today &mdash; Walk-Ins Welcome</div>
+    <h1>Modern healthcare, <span class="hl">personal touch</span></h1>
+    <p class="hero-p">Where cutting-edge medicine meets genuine compassion. Same-day appointments, extended hours, and a team that treats you like family &mdash; not a number.</p>
+    <div class="hb">
+      <a href="#book" class="btn btn-b">&#128197; Book Appointment</a>
+      <a href="tel:+13055557890" class="btn btn-w">&#9742; (305) 555-7890</a>
+    </div>
+    <div class="trust">
+      <div class="trust-i"><span class="ic">&#9989;</span> Same-Day Appointments</div>
+      <div class="trust-i"><span class="ic">&#128737;</span> All Major Insurance</div>
+      <div class="trust-i"><span class="ic">&#127760;</span> Bilingual EN/ES</div>
+    </div>
+  </div>
+  <div class="hr"><div class="feat-stack">
+    <div class="feat"><div class="feat-ic fc1">&#129657;</div><div><h4>Primary & Family Care</h4><p>Comprehensive wellness for every age</p></div></div>
+    <div class="feat"><div class="feat-ic fc2">&#128118;</div><div><h4>Pediatrics</h4><p>Gentle, expert care for little ones</p></div></div>
+    <div class="feat"><div class="feat-ic fc3">&#129658;</div><div><h4>Urgent Care</h4><p>Quick treatment when you need it most</p></div></div>
+    <div class="feat"><div class="feat-ic fc4">&#128300;</div><div><h4>On-Site Lab & Testing</h4><p>Results fast, all under one roof</p></div></div>
+    <div class="feat"><div class="feat-ic fc5">&#129504;</div><div><h4>Mental Wellness</h4><p>Screening, support, and referrals</p></div></div>
+  </div></div>
+</div></section>
+
+<section class="services" id="services"><div class="si">
+  <span class="tag">Our Services</span>
+  <h2 class="stit">Everything you need,<br>one clinic</h2>
+  <p class="ssub">No more running between specialists. We offer comprehensive healthcare services with the convenience of a single, trusted location.</p>
+  <div class="sg">
+    <div class="sc fi"><div class="sc-ic s1">&#129657;</div><h3>Annual Physicals</h3><p>Complete health assessments with personalized wellness plans, screenings, and follow-up coordination.</p></div>
+    <div class="sc fi"><div class="sc-ic s2">&#128154;</div><h3>Women's Health</h3><p>Annual exams, prenatal care, contraception counseling, menopause management, and wellness support.</p></div>
+    <div class="sc fi"><div class="sc-ic s3">&#128137;</div><h3>Chronic Disease</h3><p>Diabetes, hypertension, thyroid, asthma, and arthritis management with ongoing monitoring and education.</p></div>
+    <div class="sc fi"><div class="sc-ic s4">&#128138;</div><h3>Vaccinations</h3><p>Flu shots, COVID boosters, travel vaccines, childhood immunizations, and shingles prevention.</p></div>
+    <div class="sc fi"><div class="sc-ic s5">&#129504;</div><h3>Mental Health</h3><p>Depression & anxiety screening, therapy referrals, medication management, and stress counseling.</p></div>
+    <div class="sc fi"><div class="sc-ic s6">&#128300;</div><h3>Lab & Diagnostics</h3><p>On-site bloodwork, rapid strep/flu/COVID testing, EKG, urinalysis, and more with same-day results.</p></div>
+  </div>
+</div></section>
+
+<section class="why"><div class="wi">
+  <span class="tag">Why CarePoint</span>
+  <h2 class="stit">Numbers that speak</h2>
+  <p class="ssub">Our patients' outcomes and satisfaction tell the story better than we ever could.</p>
+  <div class="wg">
+    <div class="wc fi"><div class="wc-num">15K+</div><h4>Patients Served</h4><p>Trusted by thousands of families across the community</p></div>
+    <div class="wc fi"><div class="wc-num">4.9&#9733;</div><h4>Google Rating</h4><p>One of the highest-rated clinics in the area</p></div>
+    <div class="wc fi"><div class="wc-num">24/7</div><h4>AI Scheduling</h4><p>Book appointments anytime via our smart assistant</p></div>
+    <div class="wc fi"><div class="wc-num">97%</div><h4>Would Recommend</h4><p>Based on anonymous patient satisfaction surveys</p></div>
+  </div>
+</div></section>
+
+<section class="team" id="team"><div class="ti">
+  <span class="tag">Our Team</span>
+  <h2 class="stit" style="margin-bottom:60px">Providers who care</h2>
+  <div class="tg">
+    <div class="tc fi"><div class="tc-img t1">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div><div class="tc-info"><h3>Dr. Sofia Alvarez</h3><span class="tc-role">Family Medicine &bull; Lead</span><p>Board-certified with 12 years of experience. Bilingual EN/ES.</p></div></div>
+    <div class="tc fi"><div class="tc-img t2">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div><div class="tc-info"><h3>Dr. David Nguyen</h3><span class="tc-role">Internal Medicine</span><p>Specialist in chronic care and preventive health. Duke Med.</p></div></div>
+    <div class="tc fi"><div class="tc-img t3">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div><div class="tc-info"><h3>Dr. Amara Johnson</h3><span class="tc-role">Pediatrics</span><p>Pediatric specialist dedicated to children's wellness.</p></div></div>
+    <div class="tc fi"><div class="tc-img t4">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div><div class="tc-info"><h3>Marcus Rivera, NP</h3><span class="tc-role">Nurse Practitioner</span><p>Urgent care expert with compassionate, efficient approach.</p></div></div>
+  </div>
+</div></section>
+
+<section class="testi" id="reviews"><div class="tei">
+  <span class="tag">Patient Reviews</span>
+  <h2 class="stit" style="margin-bottom:60px">Loved by our community</h2>
+  <div class="teg">
+    <div class="tec fi"><div class="te-stars"><span class="on">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div><blockquote>"Dr. Alvarez is the best doctor I've ever had. She remembered my daughter's name, asked about my mother's health, and explained everything so clearly. This is rare."</blockquote><div class="te-who"><div class="te-avi a1">L</div><div><div class="te-name">Laura P.</div><div class="te-since">Patient since 2021</div></div></div></div>
+    <div class="tec fi"><div class="te-stars"><span class="on">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div><blockquote>"I booked online at 10pm and had an appointment at 8am the next day. The AI chatbot even reminded me what to bring. This is what modern healthcare should look like."</blockquote><div class="te-who"><div class="te-avi a2">M</div><div><div class="te-name">Miguel R.</div><div class="te-since">Patient since 2023</div></div></div></div>
+    <div class="tec fi"><div class="te-stars"><span class="on">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div><blockquote>"My whole family goes here. The pediatrician is wonderful with the kids, and Dr. Nguyen manages my husband's diabetes perfectly. One stop for the whole family."</blockquote><div class="te-who"><div class="te-avi a3">S</div><div><div class="te-name">Sandra K.</div><div class="te-since">Patient since 2020</div></div></div></div>
+  </div>
+</div></section>
+
+<section class="cta" id="book"><div class="cta-in">
+  <span class="tag">Get Started</span>
+  <h2>Ready to feel better?</h2>
+  <p>New patients welcome. Book your first visit online in 30 seconds, or call us. Most same-day appointments available.</p>
+  <div class="cta-form"><input type="text" placeholder="Your name or phone number"><button class="btn btn-b">Book Now &rarr;</button></div>
+  <div class="cta-ph">Or call: <a href="tel:+13055557890">(305) 555-7890</a></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="ci">
+  <div class="cc"><div class="ico">&#128205;</div><h3>Our Location</h3><p>601 SW 57th Avenue<br>Miami, FL 33144<br>Free parking available</p></div>
+  <div class="cc"><div class="ico">&#128337;</div><h3>Office Hours</h3><p>Mon-Fri: 7:00 AM - 8:00 PM<br>Saturday: 8:00 AM - 4:00 PM<br>Sunday: 9:00 AM - 1:00 PM</p></div>
+  <div class="cc"><div class="ico">&#128222;</div><h3>Get in Touch</h3><p>Phone: (305) 555-7890<br>Fax: (305) 555-7891<br>hello@carepointmed.com</p></div>
+</div></section>
+
+<footer><div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Insurance</a><a href="#">Patient Portal</a><a href="#">Careers</a></div><p>&copy; 2026 CarePoint Medical. All rights reserved. | Powered by Scientia Thrive</p></footer>
+
+<div class="chatw">
+  <div class="chbox" id="chb">
+    <div class="chh"><h4>&#x1F49A; CarePoint AI</h4><p>Online &bull; Book appointments 24/7</p></div>
+    <div class="chm"><div class="chbot"><div class="av">&#x1F49A;</div><div class="bbl">Hi there! &#x1F44B; I'm CarePoint's AI assistant. I can help you book an appointment, check insurance, find our hours, or answer health questions. What can I do for you?</div></div></div>
+    <div class="chf"><input placeholder="Type a message..."><button>Send</button></div>
+  </div>
+  <button class="chtgl" onclick="document.getElementById('chb').classList.toggle('on')">&#x1F4AC;</button>
+</div>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:0.1});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
